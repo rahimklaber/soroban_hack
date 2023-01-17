@@ -664,7 +664,7 @@ dependencies = [
 [[package]]
 name = "ciphersuite"
 version = "0.1.1"
-source = "git+https://github.com/serai-dex/serai#375887bb29819bd17f47866538c0b61bd16e4c87"
+source = "git+https://github.com/serai-dex/serai/?rev=d97890dee4a98985565fad7597217b5f1f9b8da1#d97890dee4a98985565fad7597217b5f1f9b8da1"
 dependencies = [
  "dalek-ff-group",
  "digest 0.10.6",
@@ -753,6 +753,64 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b540bd8bc810d3885c6ea91e2018302f68baba2129ab3e88f32389ee9370880d"
 dependencies = [
  "cfg-if",
+]
+
+[[package]]
+name = "crossbeam"
+version = "0.8.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "2801af0d36612ae591caa9568261fddce32ce6e08a7275ea334a06a4ad021a2c"
+dependencies = [
+ "cfg-if",
+ "crossbeam-channel",
+ "crossbeam-deque",
+ "crossbeam-epoch",
+ "crossbeam-queue",
+ "crossbeam-utils",
+]
+
+[[package]]
+name = "crossbeam-channel"
+version = "0.5.6"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c2dd04ddaf88237dc3b8d8f9a3c1004b506b54b3313403944054d23c0870c521"
+dependencies = [
+ "cfg-if",
+ "crossbeam-utils",
+]
+
+[[package]]
+name = "crossbeam-deque"
+version = "0.8.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "715e8152b692bba2d374b53d4875445368fdf21a94751410af607a5ac677d1fc"
+dependencies = [
+ "cfg-if",
+ "crossbeam-epoch",
+ "crossbeam-utils",
+]
+
+[[package]]
+name = "crossbeam-epoch"
+version = "0.9.13"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "01a9af1f4c2ef74bb8aa1f7e19706bc72d03598c8a570bb5de72243c7a9d9d5a"
+dependencies = [
+ "autocfg",
+ "cfg-if",
+ "crossbeam-utils",
+ "memoffset 0.7.1",
+ "scopeguard",
+]
+
+[[package]]
+name = "crossbeam-queue"
+version = "0.3.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d1cfb3ea8a53f37c40dea2c7bedcbd88bdfae54f5e2175d6ecaff1c988353add"
+dependencies = [
+ "cfg-if",
+ "crossbeam-utils",
 ]
 
 [[package]]
@@ -897,7 +955,7 @@ dependencies = [
 [[package]]
 name = "dalek-ff-group"
 version = "0.1.5"
-source = "git+https://github.com/serai-dex/serai#375887bb29819bd17f47866538c0b61bd16e4c87"
+source = "git+https://github.com/serai-dex/serai/?rev=d97890dee4a98985565fad7597217b5f1f9b8da1#d97890dee4a98985565fad7597217b5f1f9b8da1"
 dependencies = [
  "crypto-bigint",
  "curve25519-dalek 3.2.0",
@@ -1074,7 +1132,7 @@ dependencies = [
 [[package]]
 name = "dkg"
 version = "0.2.0"
-source = "git+https://github.com/serai-dex/serai#375887bb29819bd17f47866538c0b61bd16e4c87"
+source = "git+https://github.com/serai-dex/serai/?rev=d97890dee4a98985565fad7597217b5f1f9b8da1#d97890dee4a98985565fad7597217b5f1f9b8da1"
 dependencies = [
  "chacha20 0.9.0",
  "ciphersuite",
@@ -1093,7 +1151,7 @@ dependencies = [
 [[package]]
 name = "dleq"
 version = "0.2.0"
-source = "git+https://github.com/serai-dex/serai#375887bb29819bd17f47866538c0b61bd16e4c87"
+source = "git+https://github.com/serai-dex/serai/?rev=d97890dee4a98985565fad7597217b5f1f9b8da1#d97890dee4a98985565fad7597217b5f1f9b8da1"
 dependencies = [
  "digest 0.10.6",
  "ff",
@@ -1237,7 +1295,7 @@ dependencies = [
 [[package]]
 name = "flexible-transcript"
 version = "0.2.0"
-source = "git+https://github.com/serai-dex/serai#375887bb29819bd17f47866538c0b61bd16e4c87"
+source = "git+https://github.com/serai-dex/serai/?rev=d97890dee4a98985565fad7597217b5f1f9b8da1#d97890dee4a98985565fad7597217b5f1f9b8da1"
 dependencies = [
  "blake2",
  "digest 0.10.6",
@@ -2530,6 +2588,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "memoffset"
+version = "0.7.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5de893c32cde5f383baa4c04c5d6dbdd735cfd4a794b0debdb2bb1b421da5ff4"
+dependencies = [
+ "autocfg",
+]
+
+[[package]]
 name = "minimal-lexical"
 version = "0.2.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2559,7 +2626,7 @@ dependencies = [
 [[package]]
 name = "modular-frost"
 version = "0.5.0"
-source = "git+https://github.com/serai-dex/serai#375887bb29819bd17f47866538c0b61bd16e4c87"
+source = "git+https://github.com/serai-dex/serai/?rev=d97890dee4a98985565fad7597217b5f1f9b8da1#d97890dee4a98985565fad7597217b5f1f9b8da1"
 dependencies = [
  "chacha20 0.9.0",
  "ciphersuite",
@@ -2612,7 +2679,7 @@ dependencies = [
 [[package]]
 name = "multiexp"
 version = "0.2.2"
-source = "git+https://github.com/serai-dex/serai#375887bb29819bd17f47866538c0b61bd16e4c87"
+source = "git+https://github.com/serai-dex/serai/?rev=d97890dee4a98985565fad7597217b5f1f9b8da1#d97890dee4a98985565fad7597217b5f1f9b8da1"
 dependencies = [
  "ff",
  "group",
@@ -2745,7 +2812,7 @@ dependencies = [
  "bitflags",
  "cfg-if",
  "libc",
- "memoffset",
+ "memoffset 0.6.5",
 ]
 
 [[package]]
@@ -3560,7 +3627,7 @@ dependencies = [
 [[package]]
 name = "schnorr-signatures"
 version = "0.2.0"
-source = "git+https://github.com/serai-dex/serai#375887bb29819bd17f47866538c0b61bd16e4c87"
+source = "git+https://github.com/serai-dex/serai/?rev=d97890dee4a98985565fad7597217b5f1f9b8da1#d97890dee4a98985565fad7597217b5f1f9b8da1"
 dependencies = [
  "ciphersuite",
  "digest 0.10.6",
@@ -4161,7 +4228,7 @@ version = "0.1.0"
 dependencies = [
  "async-std",
  "bigint",
- "dkg",
+ "crossbeam",
  "futures",
  "hex",
  "libp2p",

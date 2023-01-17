@@ -17,19 +17,13 @@ pub struct Behaviour {
     identify: identify::Behaviour,
     pub kademelia: Kademlia<MemoryStore>,
     pub gossipsub: Gossipsub,
-    autonat: Toggle<autonat::Behaviour>,
 }
 
 impl Behaviour {
     pub fn new(key: identity::Keypair,pub_key: identity::PublicKey) -> Self {
         let mut kademelia = Kademlia::new(PeerId::from_public_key(&pub_key),MemoryStore::new(PeerId::from_public_key(&pub_key),));
 
-        let autonat = 
-            Some(autonat::Behaviour::new(
-                PeerId::from(pub_key.clone()),
-                Default::default(),
-            ))
-        .into();
+
         let message_id_fn = |message: &GossipsubMessage| {
             let mut s = DefaultHasher::new();
             message.data.hash(&mut s);
@@ -38,8 +32,9 @@ impl Behaviour {
 
             // Set a custom gossipsub configuration
         let gossipsub_config = gossipsub::GossipsubConfigBuilder::default()
+        .duplicate_cache_time(Duration::from_micros(0))
         .heartbeat_interval(Duration::from_secs(10)) // This is set to aid debugging by not cluttering the log space
-        .validation_mode(ValidationMode::Strict) // This sets the kind of message validation. The default is Strict (enforce message signing)
+        .validation_mode(ValidationMode::Permissive) // This sets the kind of message validation. The default is Strict (enforce message signing)
         .message_id_fn(message_id_fn) // content-address messages. No two messages of the same content will be propagated.
         .build()
         .expect("Valid config");
@@ -56,7 +51,6 @@ impl Behaviour {
                 ),
             ),
             kademelia,
-            autonat,
             gossipsub
         }
     }
